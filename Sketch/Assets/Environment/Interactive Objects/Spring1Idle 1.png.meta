@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 215c43f276fd3b748972a311428cc514
+guid: c8dc01b3b30206d4c96dc65c857b2740
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Spring1Idle
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

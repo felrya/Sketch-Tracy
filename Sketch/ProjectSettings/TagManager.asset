@@ -5,6 +5,7 @@ TagManager:
   tags:
   - Sketch
   - Tracy
+  - Platform
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   User Layer 11: Springs
   User Layer 12: See-Saws
   User Layer 13: Backgrounds
-  User Layer 14: 
+  User Layer 14: Platforms
   User Layer 15: 
   User Layer 16: 
   User Layer 17: 

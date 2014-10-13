@@ -1,22 +1,20 @@
 fileFormatVersion: 2
-guid: 307931699d1a457428f9f75e40cd8823
+guid: 54180253b8733c14b940cecfb6fc9218
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Spring1SproingSheet
-    21300002: Spring1SproingSheet_0
-    21300004: Spring1SproingSheet_1
-    21300006: Spring1SproingSheet_2
-    21300008: Spring1SproingSheet_3
-    21300010: Spring1SproingSheet_4
-    21300012: Spring1SproingSheet_5
-    21300014: Spring1SproingSheet_6
-    21300016: Spring1SproingSheet_7
-    21300018: Spring1SproingSheet_8
-    21300020: Spring1SproingSheet_9
-    21300022: Spring1SproingSheet_10
-    21300024: Spring1SproingSheet_11
-    21300026: Spring1SproingSheet_12
-    21300028: Spring1SproingSheet_13
+    21300000: SketchTracyJumpSheet_0
+    21300002: SketchTracyJumpSheet_1
+    21300004: SketchTracyJumpSheet_2
+    21300006: SketchTracyJumpSheet_3
+    21300008: SketchTracyJumpSheet_4
+    21300010: SketchTracyJumpSheet_5
+    21300012: SketchTracyJumpSheet_6
+    21300014: SketchTracyJumpSheet_7
+    21300016: SketchTracyJumpSheet_8
+    21300018: SketchTracyJumpSheet_9
+    21300020: SketchTracyJumpSheet_10
+    21300022: SketchTracyJumpSheet_11
+    21300024: SketchTracyJumpSheet_12
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,143 +56,133 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Spring1SproingSheet_0
+    - name: SketchTracyJumpSheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 714
-        width: 170
-        height: 238
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_1
+    - name: SketchTracyJumpSheet_1
       rect:
         serializedVersion: 2
-        x: 170
-        y: 714
-        width: 170
-        height: 238
+        x: 128
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_2
+    - name: SketchTracyJumpSheet_2
       rect:
         serializedVersion: 2
-        x: 340
-        y: 714
-        width: 170
-        height: 238
+        x: 256
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_3
+    - name: SketchTracyJumpSheet_3
       rect:
         serializedVersion: 2
-        x: 510
-        y: 714
-        width: 170
-        height: 238
+        x: 384
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 476
-        width: 170
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_5
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 476
-        width: 170
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_6
-      rect:
-        serializedVersion: 2
-        x: 340
-        y: 476
-        width: 170
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_7
-      rect:
-        serializedVersion: 2
-        x: 510
-        y: 476
-        width: 170
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_8
+    - name: SketchTracyJumpSheet_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 238
-        width: 170
-        height: 238
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_9
+    - name: SketchTracyJumpSheet_5
       rect:
         serializedVersion: 2
-        x: 170
-        y: 238
-        width: 170
-        height: 238
+        x: 128
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_10
+    - name: SketchTracyJumpSheet_6
       rect:
         serializedVersion: 2
-        x: 340
-        y: 238
-        width: 170
-        height: 238
+        x: 256
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_11
+    - name: SketchTracyJumpSheet_7
       rect:
         serializedVersion: 2
-        x: 510
-        y: 238
-        width: 170
-        height: 238
+        x: 384
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_12
+    - name: SketchTracyJumpSheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SketchTracyJumpSheet_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SketchTracyJumpSheet_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SketchTracyJumpSheet_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SketchTracyJumpSheet_12
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 170
-        height: 238
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: Spring1SproingSheet_13
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 0
-        width: 170
-        height: 238
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
