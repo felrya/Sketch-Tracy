@@ -19,6 +19,9 @@ public class CharacterController : MonoBehaviour
 
     private float move = 0.0f;
 
+    public bool atDoor = false;
+    public GameObject doorAt;
+
     // Use this for initialization
     void Start()
     {
@@ -58,6 +61,8 @@ public class CharacterController : MonoBehaviour
             rigidbody2D.AddForce(new Vector2(0, jumpForce));
         }
 
+        HandleDoors();
+
         if (move > 0 && !facingRight)
             Flip();
         else if (move < 0 && facingRight)
@@ -89,12 +94,51 @@ public class CharacterController : MonoBehaviour
         playerControl = false;
     }
 
+    private void HandleDoors()
+    {
+        Door theDoor;
+        if (atDoor && Input.GetButtonDown("OpenDoor"))
+        {
+            if (doorAt != null)
+            {
+                theDoor = doorAt.GetComponent<Door>();
+                if (!theDoor.isOpen)
+                {
+                    theDoor.OpenDoor(gameObject);
+                }
+                else
+                {
+                    playerControl = false;
+                    theDoor.CloseDoor();
+                }
+            }
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name == "SpringSingle" && col.relativeVelocity.y < 0)
         {
             Debug.Log(col.relativeVelocity.x + ", " + col.relativeVelocity.y);
             rigidbody2D.AddForce(new Vector2(0, springForce));
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Door")
+        {
+            atDoor = true;
+            doorAt = col.gameObject;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Door")
+        {
+            atDoor = false;
+            doorAt = null;
         }
     }
 }
