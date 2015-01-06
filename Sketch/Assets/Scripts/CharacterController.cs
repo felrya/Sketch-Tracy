@@ -3,7 +3,10 @@ using System.Collections;
 
 public class CharacterController : MonoBehaviour
 {
-    public float maxSpeed = 4;
+    private const float PLATFORM_SPEED_MODIFIER = 3.3f;
+    private float initialMaxSpeed;
+
+    public float maxSpeed;
     bool facingRight = true;
 
     Animator anim;
@@ -26,6 +29,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        initialMaxSpeed = maxSpeed;
     }
 
     void FixedUpdate()
@@ -121,6 +125,33 @@ public class CharacterController : MonoBehaviour
         {
             Debug.Log(col.relativeVelocity.x + ", " + col.relativeVelocity.y);
             rigidbody2D.AddForce(new Vector2(0, springForce));
+        }
+
+        if (col.gameObject.tag == "Platform")
+        {
+            gameObject.transform.parent = col.transform;
+            maxSpeed *= PLATFORM_SPEED_MODIFIER;
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        /*if (col.gameObject.tag == "Platform")
+        {
+            Debug.Log("VELOCITY: " + rigidbody2D.velocity.sqrMagnitude);
+            if (rigidbody2D.velocity.sqrMagnitude > 0.01)
+                gameObject.transform.parent = null;
+            else
+                gameObject.transform.parent = col.transform;
+        }*/
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Platform")
+        {
+            gameObject.transform.parent = null;
+            maxSpeed = initialMaxSpeed;
         }
     }
 
