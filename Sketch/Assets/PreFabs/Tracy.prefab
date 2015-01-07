@@ -132,8 +132,6 @@ MonoBehaviour:
   jumpForce: 350
   springForce: 650
   playerControl: 0
-  atDoor: 0
-  doorAt: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
