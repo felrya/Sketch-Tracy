@@ -3,76 +3,64 @@ using System.Collections;
 
 public class CharacterController : MonoBehaviour
 {
-    public float maxSpeed = 4;
-    bool facingRight = true;
-
-    Animator anim;
-
-    bool grounded = false;
-    public Transform groundCheck;
-    float groundRadius = 0.9f;
-    public LayerMask whatIsGround;
-    public float jumpForce = 500f;
-    public float springForce = 750f;
+    [HideInInspector]
+    public bool facingRight = true;
+    [HideInInspector]
+    public bool jump = false;
 
     public bool playerControl = false;
-
-    private float move = 0.0f;
+    public float maxSpeed = 5f;
+    public float jumpForce = 1000f;
+    public float springForce = 750f;
+    public LayerMask whatIsGround;
 
     public bool atDoor = false;
     public GameObject doorAt;
 
-    // Use this for initialization
-    void Start()
+    private Transform groundCheck;
+    private bool grounded = false;
+    private Animator anim;
+
+    void Awake()
     {
+        groundCheck = transform.Find("GroundCheck");
         anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        // The player is grounded if a linecast to the groundcheck position hits anything on the ground layer.
+        grounded = Physics2D.Linecast(transform.position, groundCheck.position, whatIsGround);
+        anim.SetBool("Ground", grounded);
+
+        if (Input.GetButtonDown("Jump") && grounded && playerControl)
+            jump = true;
+
+        anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
     }
 
     void FixedUpdate()
     {
-        //Detect ground with circle
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-
-        //Detect ground with linecast
-        //grounded = Physics2D.Linecast(transform.position, groundCheck.position, whatIsGround);
-
-        anim.SetBool("Ground", grounded);
-
-        anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
-
-        //if (!grounded) return;
-
         if (playerControl)
         {
-            move = Input.GetAxis("Horizontal");
+            float h = Input.GetAxis("Horizontal");
+
+            anim.SetFloat("Speed", Mathf.Abs(h));
+
+            rigidbody2D.velocity = new Vector2(h * maxSpeed, rigidbody2D.velocity.y);
+
+            if (h > 0 && !facingRight)
+                Flip();
+            else if (h < 0 && facingRight)
+                Flip();
+
+            if (jump)
+            {
+                rigidbody2D.AddForce(new Vector2(0f, jumpForce));
+
+                jump = false;
+            }
         }
-        else
-        {
-            move = 0.0f;
-        }
-
-        anim.SetFloat("Speed", Mathf.Abs(move));
-
-        rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);
-
-        if (playerControl && grounded && Input.GetButtonDown("Jump"))
-        {
-            anim.SetBool("Ground", false);
-            rigidbody2D.AddForce(new Vector2(0, jumpForce));
-        }
-
-        HandleDoors();
-
-        if (move > 0 && !facingRight)
-            Flip();
-        else if (move < 0 && facingRight)
-            Flip();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void Flip()

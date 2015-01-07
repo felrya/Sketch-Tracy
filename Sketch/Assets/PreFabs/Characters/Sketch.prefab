@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   m_Layer: 9
-  m_Name: GroundCheckSketch
+  m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.729849815, z: 0}
+  m_LocalPosition: {x: 0, y: -.80320549, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .895974576, y: 2.28841543, z: 0}
+  m_LocalPosition: {x: 1.34991097, y: 1.90087521, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -124,14 +124,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f158540a122806843ad30db0158b1d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facingRight: 1
+  jump: 0
+  playerControl: 1
   maxSpeed: 4
-  groundCheck: {fileID: 400000}
+  jumpForce: 2000
+  springForce: 3000
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294964735
-  jumpForce: 2000
-  springForce: 2500
-  playerControl: 0
+    m_Bits: 21504
+  atDoor: 0
+  doorAt: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
