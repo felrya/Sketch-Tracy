@@ -12,8 +12,8 @@ public class CharacterSwitch : MonoBehaviour
     public GameObject teamObject;
     public GameObject cameraObject;
 
-    private CharacterController sketch;
-    private CharacterController tracy;
+    private PlayerController sketch;
+    private PlayerController tracy;
     private CameraFollow camera;
     private bool sketchActiveStatus;
     private bool tracyActiveStatus;
@@ -24,8 +24,8 @@ public class CharacterSwitch : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        sketch = sketchObject.GetComponent<CharacterController>();
-        tracy = tracyObject.GetComponent<CharacterController>();
+        sketch = sketchObject.GetComponent<PlayerController>();
+        tracy = tracyObject.GetComponent<PlayerController>();
         camera = cameraObject.GetComponent<CameraFollow>();
     }
 
@@ -93,7 +93,7 @@ public class CharacterSwitch : MonoBehaviour
 
         teamObject = (GameObject)Instantiate(teamPreFab, spawnLocation, rotation);
         teamObject.name = "Team";
-        teamObject.GetComponent<CharacterController>().playerControl = true;
+        teamObject.GetComponent<PlayerController>().playerControl = true;
 
         changeCameraTarget(teamObject);
     }
@@ -103,17 +103,17 @@ public class CharacterSwitch : MonoBehaviour
         Vector3 spawnLocation = teamObject.transform.position;
         Quaternion rotation = teamObject.transform.rotation;
 
-        teamObject.GetComponent<CharacterController>().playerControl = false;
+        teamObject.GetComponent<PlayerController>().playerControl = false;
         Destroy(teamObject);
 
         sketchObject = (GameObject)Instantiate(sketchPreFab, spawnLocation - new Vector3(0.5f, 0, 0), rotation);
         sketchObject.name = "Sketch";
-        sketch = sketchObject.GetComponent<CharacterController>();
+        sketch = sketchObject.GetComponent<PlayerController>();
         sketch.playerControl = true;
 
         tracyObject = (GameObject)Instantiate(tracyPreFab, spawnLocation + new Vector3(0.5f, 0, 0), rotation);
         tracyObject.name = "Tracy";
-        tracy = tracyObject.GetComponent<CharacterController>();
+        tracy = tracyObject.GetComponent<PlayerController>();
 
         teamedUp = false;
 

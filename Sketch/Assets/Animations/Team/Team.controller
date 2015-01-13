@@ -46,21 +46,21 @@ BlendTree:
   m_Name: Jump & Fall
   m_Childs:
   - m_Motion: {fileID: 7400000, guid: 8c1a869a56078114f8a51616e8b851d6, type: 2}
-    m_Threshold: -5
+    m_Threshold: -13
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: 7cc8142c4d0004546abda1c415655c0d, type: 2}
-    m_Threshold: -3.33333325
+    m_Threshold: -8.66666698
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: c544e9a88204bef47a192636bb485094, type: 2}
-    m_Threshold: -1.66666663
+    m_Threshold: -4.33333349
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -74,21 +74,21 @@ BlendTree:
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: ec5f80918d6cb2444b0c693fba05b93c, type: 2}
-    m_Threshold: 1.66666663
+    m_Threshold: 4.33333349
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: b60d47fa61664a5438c44f8b910b34fe, type: 2}
-    m_Threshold: 3.33333325
+    m_Threshold: 8.66666698
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: 5a223e9cdab68cf418723ba0de39cc71, type: 2}
-    m_Threshold: 5
+    m_Threshold: 13
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -96,8 +96,8 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: vSpeed
   m_BlendParameterY: Speed
-  m_MinThreshold: -5
-  m_MaxThreshold: 5
+  m_MinThreshold: -13
+  m_MaxThreshold: 13
   m_UseAutomaticThresholds: 1
   m_BlendType: 0
 --- !u!1101 &110100000
@@ -305,33 +305,33 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110265897}
+      first: {fileID: 0}
       second:
-      - {fileID: 110134774}
-    data:
-      first: {fileID: 110217247}
-      second: []
-    data:
-      first: {fileID: 110213951}
-      second: []
-    data:
-      first: {fileID: 110254063}
-      second: []
-    data:
-      first: {fileID: 110203675}
-      second: []
-    data:
-      first: {fileID: 110274011}
-      second:
-      - {fileID: 110195134}
+      - {fileID: 110185590}
     data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110100000}
     data:
-      first: {fileID: 0}
+      first: {fileID: 110274011}
       second:
-      - {fileID: 110185590}
+      - {fileID: 110195134}
+    data:
+      first: {fileID: 110203675}
+      second: []
+    data:
+      first: {fileID: 110254063}
+      second: []
+    data:
+      first: {fileID: 110213951}
+      second: []
+    data:
+      first: {fileID: 110217247}
+      second: []
+    data:
+      first: {fileID: 110265897}
+      second:
+      - {fileID: 110134774}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -180, y: 180, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

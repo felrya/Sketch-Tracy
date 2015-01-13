@@ -28,7 +28,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11414114}
   m_Layer: 9
   m_Name: Sketch
   m_TagString: Sketch
@@ -113,7 +113,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11400000
+--- !u!114 &11414114
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f158540a122806843ad30db0158b1d87, type: 3}
+  m_Script: {fileID: 11500000, guid: 0293ec5e9c1c4fc4da117b63c53c1b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
@@ -129,10 +129,10 @@ MonoBehaviour:
   playerControl: 1
   maxSpeed: 4
   jumpForce: 2000
-  springForce: 3000
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 21504
+    m_Bits: 23552
+  activePlatform: {fileID: 0}
   atDoor: 0
   doorAt: {fileID: 0}
 --- !u!212 &21200000
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2467922733
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8b0d5528dfef64846a33de13861b5028, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

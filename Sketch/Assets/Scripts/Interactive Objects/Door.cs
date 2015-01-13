@@ -30,7 +30,7 @@ public class Door : MonoBehaviour
 
     public void CloseDoor()
     {
-        GetComponent<SpriteRenderer>().sortingOrder = 1;
+        GetComponent<SpriteRenderer>().sortingOrder = 2;
         anim.SetBool("OpenDoor", false);
         isOpen = false;
 

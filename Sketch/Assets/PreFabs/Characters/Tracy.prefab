@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400000}
+  - 114: {fileID: 11459826}
   m_Layer: 9
   m_Name: Tracy
   m_TagString: Tracy
@@ -70,7 +70,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: .400000006
+  m_GravityScale: .600000024
   m_FixedAngle: 1
   m_IsKinematic: 0
   m_Interpolate: 1
@@ -113,7 +113,7 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11400000
+--- !u!114 &11459826
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f158540a122806843ad30db0158b1d87, type: 3}
+  m_Script: {fileID: 11500000, guid: 0293ec5e9c1c4fc4da117b63c53c1b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
@@ -129,10 +129,10 @@ MonoBehaviour:
   playerControl: 0
   maxSpeed: 4
   jumpForce: 500
-  springForce: 750
   whatIsGround:
     serializedVersion: 2
     m_Bits: 21504
+  activePlatform: {fileID: 0}
   atDoor: 0
   doorAt: {fileID: 0}
 --- !u!212 &21200000

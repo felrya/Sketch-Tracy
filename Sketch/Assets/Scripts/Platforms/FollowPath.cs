@@ -14,8 +14,11 @@ public class FollowPath : MonoBehaviour
     public PathDefinition Path;
     public float Speed = 1;
     public float MaxDistanceToGoal = 0.1f;
+    [HideInInspector]
+    public Vector2 velocity = Vector2.zero;
 
     private IEnumerator<Transform> currentPoint;
+    private Vector3 prevLocation;
 
     public void Start()
     {
@@ -32,6 +35,7 @@ public class FollowPath : MonoBehaviour
             return;
 
         transform.position = currentPoint.Current.position;
+        prevLocation = transform.position;
     }
 
     public void Update()
@@ -43,6 +47,9 @@ public class FollowPath : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, currentPoint.Current.position, Time.deltaTime * Speed);
         else if (Type == FollowType.Lerp)
             transform.position = Vector3.Lerp(transform.position, currentPoint.Current.position, Time.deltaTime * Speed);
+
+        velocity = (transform.position - prevLocation) / Time.deltaTime;
+        prevLocation = transform.position;
 
         float distanceSquared = (transform.position - currentPoint.Current.position).sqrMagnitude;
         if (distanceSquared < MaxDistanceToGoal * MaxDistanceToGoal)

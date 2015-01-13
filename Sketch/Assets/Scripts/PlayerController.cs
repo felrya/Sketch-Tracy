@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
     public bool facingRight = true;
@@ -11,12 +11,12 @@ public class CharacterController : MonoBehaviour
     public bool playerControl = false;
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
-    public float springForce = 750f;
     public LayerMask whatIsGround;
-
+    [HideInInspector]
     public FollowPath activePlatform;
 
     public bool atDoor = false;
+    [HideInInspector]
     public GameObject doorAt;
 
     private Transform groundCheck;
@@ -46,10 +46,12 @@ public class CharacterController : MonoBehaviour
         else
             activePlatform = null;
 
-        if (Input.GetButtonDown("Jump") && grounded && playerControl && groundHit.transform.tag != "Springs")
+        if (Input.GetButtonDown("Jump") && grounded && playerControl)
             jump = true;
 
         anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
+
+        HandleDoors();
     }
 
     void FixedUpdate()
@@ -95,6 +97,8 @@ public class CharacterController : MonoBehaviour
 
     public void Deactivate()
     {
+        rigidbody2D.velocity = Vector2.zero;
+        anim.SetFloat("Speed", 0.0f);
         playerControl = false;
     }
 
@@ -116,14 +120,6 @@ public class CharacterController : MonoBehaviour
                     theDoor.CloseDoor();
                 }
             }
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.name == "SpringSingle" && col.relativeVelocity.y < 0)
-        {
-            rigidbody2D.AddForce(new Vector2(0, springForce));
         }
     }
 
