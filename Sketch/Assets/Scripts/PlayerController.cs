@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
     [HideInInspector]
     public FollowPath activePlatform;
+    private Vector2 activePlatformPrevLoc;
 
     public bool atDoor = false;
     [HideInInspector]
@@ -41,7 +42,11 @@ public class PlayerController : MonoBehaviour
         if (grounded)
         {
             if (groundHit.transform.tag == "MovingPlatform")
+            {
                 activePlatform = groundHit.transform.GetComponent<FollowPath>();
+            }
+            else
+                activePlatform = null;
         }
         else
             activePlatform = null;
@@ -64,8 +69,7 @@ public class PlayerController : MonoBehaviour
 
             rigidbody2D.velocity = new Vector2(h * maxSpeed, rigidbody2D.velocity.y);
 
-            if (activePlatform != null)
-                rigidbody2D.velocity += activePlatform.velocity;
+            HandleMovingPlatforms();
 
             if (h > 0 && !facingRight)
                 Flip();
@@ -75,7 +79,6 @@ public class PlayerController : MonoBehaviour
             if (jump)
             {
                 rigidbody2D.AddForce(new Vector2(0f, jumpForce));
-
                 jump = false;
             }
         }
@@ -100,6 +103,17 @@ public class PlayerController : MonoBehaviour
         rigidbody2D.velocity = Vector2.zero;
         anim.SetFloat("Speed", 0.0f);
         playerControl = false;
+    }
+
+    private void HandleMovingPlatforms()
+    {
+        if (activePlatform != null)
+        {
+            if (activePlatform.velocity.x > 0 && facingRight || activePlatform.velocity.x < 0 && !facingRight)
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x * 2, rigidbody2D.velocity.y);
+            else
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y);
+        }
     }
 
     private void HandleDoors()
