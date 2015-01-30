@@ -14,7 +14,7 @@ public class CharacterSwitch : MonoBehaviour
 
     private PlayerController sketch;
     private PlayerController tracy;
-    private CameraFollow camera;
+    private CameraFollow cam;
     private bool sketchActiveStatus;
     private bool tracyActiveStatus;
 
@@ -26,7 +26,7 @@ public class CharacterSwitch : MonoBehaviour
     {
         sketch = sketchObject.GetComponent<PlayerController>();
         tracy = tracyObject.GetComponent<PlayerController>();
-        camera = cameraObject.GetComponent<CameraFollow>();
+        cam = cameraObject.GetComponent<CameraFollow>();
     }
 
     void FixedUpdate()
@@ -46,13 +46,13 @@ public class CharacterSwitch : MonoBehaviour
             {
                 tracy.Deactivate();
                 sketch.Activate();
-                changeCameraTarget(sketchObject);
+                ChangeCameraTarget(sketchObject);
             }
             else if (sketchActiveStatus)
             {
                 sketch.Deactivate();
                 tracy.Activate();
-                changeCameraTarget(tracyObject);
+                ChangeCameraTarget(tracyObject);
             }
         }
 
@@ -60,17 +60,17 @@ public class CharacterSwitch : MonoBehaviour
         {
             if (!teamedUp)
             {
-                if (canTeamUp())
-                    teamUp();
+                if (CanTeamUp())
+                    TeamUp();
             }
             else
             {
-                unTeam();
+                UnTeam();
             }
         }
     }
 
-    private bool canTeamUp()
+    private bool CanTeamUp()
     {
         if (Mathf.Abs(Vector3.Distance(sketchObject.transform.position, tracyObject.transform.position)) < teamDistance)
             return true;
@@ -78,7 +78,7 @@ public class CharacterSwitch : MonoBehaviour
             return false;
     }
 
-    void teamUp()
+    void TeamUp()
     {
         teamedUp = true;
 
@@ -95,10 +95,10 @@ public class CharacterSwitch : MonoBehaviour
         teamObject.name = "Team";
         teamObject.GetComponent<PlayerController>().playerControl = true;
 
-        changeCameraTarget(teamObject);
+        ChangeCameraTarget(teamObject);
     }
 
-    void unTeam()
+    void UnTeam()
     {
         Vector3 spawnLocation = teamObject.transform.position;
         Quaternion rotation = teamObject.transform.rotation;
@@ -117,12 +117,12 @@ public class CharacterSwitch : MonoBehaviour
 
         teamedUp = false;
 
-        changeCameraTarget(sketchObject);
+        ChangeCameraTarget(sketchObject);
     }
 
-    void changeCameraTarget(GameObject newTarget)
+    void ChangeCameraTarget(GameObject newTarget)
     {
-        camera.SetTarget(newTarget.transform);
+        cam.SetTarget(newTarget.transform);
     }
 }
 

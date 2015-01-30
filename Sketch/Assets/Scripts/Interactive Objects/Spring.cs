@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Interactive Objects/Spring")]
 public class Spring : MonoBehaviour
 {
     public SpringType springType = SpringType.Single;

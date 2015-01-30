@@ -1,22 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[AddComponentMenu("Scripts/Interactive Objects/Door")]
-public class Door : MonoBehaviour
+[AddComponentMenu("Scripts/Interactive Objects/Well")]
+public class Well : MonoBehaviour
 {
     public string sceneToLoad;
-    public float sceneChangeTime = 1.0f;
-    public bool isOpen = false;
+    public float sceneChangeTime = 0.2f;
 
     private bool changeScene = false;
     private float sceneChangeTimer;
 
-    private Animator anim;
-
 	// Use this for initialization
 	void Start ()
     {
-        anim = GetComponent<Animator>();
         sceneChangeTimer = sceneChangeTime;
 	}
 	
@@ -36,18 +32,9 @@ public class Door : MonoBehaviour
         }
 	}
 
-    public void OpenDoor()
+    public void EnterWell()
     {
-        anim.SetBool("OpenDoor", true);
-        isOpen = true;
-    }
-
-    public void CloseDoor()
-    {
-        GetComponent<SpriteRenderer>().sortingOrder = 2;
-        anim.SetBool("OpenDoor", false);
-        isOpen = false;
-
+        GetComponent<BoxCollider2D>().enabled = false;
         changeScene = true;
     }
 

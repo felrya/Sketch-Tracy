@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[AddComponentMenu("Scripts/Platforms/Follow Path")]
 public class FollowPath : MonoBehaviour
 {
     public enum FollowType

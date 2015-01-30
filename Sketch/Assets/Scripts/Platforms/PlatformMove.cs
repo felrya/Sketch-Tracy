@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Platforms/Platform Move")]
 public class PlatformMove : MonoBehaviour
 {
 	public float directionSwitchTime = 2;

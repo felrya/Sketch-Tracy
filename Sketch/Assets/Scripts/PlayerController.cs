@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Variables
+
     [HideInInspector]
     public bool facingRight = true;
     [HideInInspector]
@@ -20,17 +22,30 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public GameObject doorAt;
 
+    public bool atWell = false;
+    //[HideInInspector]
+    public GameObject wellAt;
+
     private Transform groundCheck;
     private RaycastHit2D groundHit;
     private bool grounded = false;
     private RaycastHit2D[] hits;
     private Animator anim;
+    private bool ball = false;
+
+    #endregion
+
+    #region Initialization
 
     void Awake()
     {
         groundCheck = transform.Find("GroundCheck");
         anim = GetComponent<Animator>();
     }
+
+    #endregion
+
+    #region Update
 
     void Update()
     {
@@ -54,9 +69,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && grounded && playerControl)
             jump = true;
 
+        if (gameObject.tag == "Team" && Input.GetButtonDown("SwitchBall"))
+            SwitchBall();
+
         anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
 
-        HandleDoors();
+        HandleInteractiveObjects();
     }
 
     void FixedUpdate()
@@ -84,14 +102,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Flip()
-    {
-        facingRight = !facingRight;
+    #endregion
 
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
+    #region Character Control Methods
 
     public void Activate()
     {
@@ -105,15 +118,14 @@ public class PlayerController : MonoBehaviour
         playerControl = false;
     }
 
-    private void HandleMovingPlatforms()
+    #endregion
+
+    #region Interactive Object Handling
+
+    private void HandleInteractiveObjects()
     {
-        if (activePlatform != null)
-        {
-            if (activePlatform.velocity.x > 0 && facingRight || activePlatform.velocity.x < 0 && !facingRight)
-                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x * 2, rigidbody2D.velocity.y);
-            else
-                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y);
-        }
+        HandleDoors();
+        HandleWells();
     }
 
     private void HandleDoors()
@@ -126,7 +138,7 @@ public class PlayerController : MonoBehaviour
                 theDoor = doorAt.GetComponent<Door>();
                 if (!theDoor.isOpen)
                 {
-                    theDoor.OpenDoor(gameObject);
+                    theDoor.OpenDoor();
                 }
                 else
                 {
@@ -136,6 +148,36 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void HandleWells()
+    {
+        Well theWell;
+        if (atWell && Input.GetButtonDown("EnterWell"))
+        {
+            if (wellAt != null)
+            {
+                theWell = wellAt.GetComponent<Well>();
+                transform.position = new Vector2(theWell.transform.position.x, transform.position.y);
+                playerControl = false;
+                theWell.EnterWell();
+            }
+        }
+    }
+
+    private void HandleMovingPlatforms()
+    {
+        if (activePlatform != null)
+        {
+            if (activePlatform.velocity.x > 0 && facingRight || activePlatform.velocity.x < 0 && !facingRight)
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x * 2, rigidbody2D.velocity.y);
+            else
+                rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, rigidbody2D.velocity.y);
+        }
+    }
+
+    #endregion
+
+    #region Triggers & Collisions
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -154,5 +196,60 @@ public class PlayerController : MonoBehaviour
             doorAt = null;
         }
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Well")
+        {
+            atWell = true;
+            wellAt = col.gameObject;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Well")
+        {
+            atWell = false;
+            wellAt = null;
+        }
+    }
+
+    #endregion
+
+    #region Helper Methods
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+    void SwitchBall()
+    {
+        if (!ball)
+        {
+            anim.SetBool("Ball", true);
+            ball = true;
+            foreach(BoxCollider2D c in GetComponents<BoxCollider2D>())
+            {
+                c.enabled = false;
+            }
+        }
+        else
+        {
+            anim.SetBool("Ball", false);
+            ball = false;
+            foreach (BoxCollider2D c in GetComponents<BoxCollider2D>())
+            {
+                c.enabled = true;
+            }
+        }
+    }
+
+    #endregion
 }
 

@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Enums\Enums.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Door.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Spring.cs" />
+     <Compile Include="Assets\Scripts\Interactive Objects\Well.cs" />
      <Compile Include="Assets\Scripts\Platforms\FollowPath.cs" />
      <Compile Include="Assets\Scripts\Platforms\PathDefinition.cs" />
      <Compile Include="Assets\Scripts\Platforms\PlatformMove.cs" />
