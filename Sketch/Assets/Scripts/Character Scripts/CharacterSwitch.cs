@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Character Scripts/Character Switch")]
 public class CharacterSwitch : MonoBehaviour
 {
     public GameObject sketchPreFab;

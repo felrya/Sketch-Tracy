@@ -46,8 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\InitialVelocity.cs" />
+     <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\LineRendererTransforms.cs" />
+     <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\MotorAcceleration.cs" />
+     <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\SimpleCameraFollow.cs" />
+     <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\SinusoidalMotor.cs" />
+     <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\StopMotors.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\CharacterSwitch.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\CharacterSwitch.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Enums\Enums.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Door.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Spring.cs" />
@@ -55,9 +62,12 @@
      <Compile Include="Assets\Scripts\Platforms\FollowPath.cs" />
      <Compile Include="Assets\Scripts\Platforms\PathDefinition.cs" />
      <Compile Include="Assets\Scripts\Platforms\PlatformMove.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <None Include="Assets\Physics 2D Extensions\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="P2D.Runtime">
+ <HintPath>M:/My Documents/GitHub/NeverPanda/Sketch-Tracy/Sketch/Assets/Physics 2D Extensions/_Main/P2D.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

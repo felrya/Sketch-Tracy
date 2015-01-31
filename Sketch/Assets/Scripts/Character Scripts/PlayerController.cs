@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[AddComponentMenu("Scripts/Character Scripts/Player Controller")]
 public class PlayerController : MonoBehaviour
 {
     #region Variables
