@@ -53,6 +53,7 @@
      <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\SinusoidalMotor.cs" />
      <Compile Include="Assets\Physics 2D Extensions\P2D Example Project\Common\Scripts\StopMotors.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Character Scripts\BallController.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\CharacterSwitch.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Enums\Enums.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Scripts\Platforms\FollowPath.cs" />
      <Compile Include="Assets\Scripts\Platforms\PathDefinition.cs" />
      <Compile Include="Assets\Scripts\Platforms\PlatformMove.cs" />
+     <Compile Include="Assets\VideoPlay.cs" />
      <None Include="Assets\Physics 2D Extensions\README.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

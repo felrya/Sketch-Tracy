@@ -231,24 +231,7 @@ public class PlayerController : MonoBehaviour
 
     void SwitchBall()
     {
-        if (!ball)
-        {
-            anim.SetBool("Ball", true);
-            ball = true;
-            foreach(BoxCollider2D c in GetComponents<BoxCollider2D>())
-            {
-                c.enabled = false;
-            }
-        }
-        else
-        {
-            anim.SetBool("Ball", false);
-            ball = false;
-            foreach (BoxCollider2D c in GetComponents<BoxCollider2D>())
-            {
-                c.enabled = true;
-            }
-        }
+        
     }
 
     #endregion
