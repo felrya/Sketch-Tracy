@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Character Scripts\CharacterSwitch.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Enums\Enums.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Door.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Spring.cs" />
      <Compile Include="Assets\Scripts\Interactive Objects\Well.cs" />

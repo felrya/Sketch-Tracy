@@ -2,7 +2,9 @@
 {
     Sketch,
     Tracy,
-    Team
+    Team,
+    Ball,
+    Airplane
 }
 
 public enum SpringType
